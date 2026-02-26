@@ -1,0 +1,185 @@
+import React, { useState } from 'react';
+import { Smartphone, Watch, Headset, Tablet, ChevronRight, User, Users, Globe, Briefcase, Heart, Construction, MapPin, Sparkles } from 'lucide-react';
+
+const App = () => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const customerTypes = [
+    {
+      title: "가족/학부모",
+      icon: <Users className="w-5 h-5" />,
+      tagline: "아이 학교 통신문, 손가락 없이 깔끔하게!",
+      features: ["AI 스캔: 그림자/손가락 자동 제거", "Now Brief: 아침마다 가족 일정 브리핑"],
+      description: "바쁜 아침, AI가 챙겨주는 우리 가족 스케줄과 깔끔한 서류 정리로 여유를 찾으세요."
+    },
+    {
+      title: "외국인/유학생",
+      icon: <Globe className="w-5 h-5" />,
+      tagline: "언어 장벽 없는 한국 생활의 시작",
+      features: ["실시간 통역: 통화 중 즉시 번역", "서클 투 서치: 궁금한 식재료 정보 검색"],
+      description: "한국어 안내판이나 낯선 식재료, 이제 사진 찍을 필요도 없이 원만 그리세요."
+    },
+    {
+      title: "직장인/전문직",
+      icon: <Briefcase className="w-5 h-5" />,
+      tagline: "완벽한 비즈니스 보안과 효율성",
+      features: ["프라이버시 디스플레이: 시야 차단 보안", "나우 넛지: 대화 맥락 읽고 일정 제안"],
+      description: "이동 중 업무 보안은 지키고, 복잡한 미팅 일정은 AI가 알아서 제안합니다."
+    },
+    {
+      title: "시니어/어르신",
+      icon: <Heart className="w-5 h-5" />,
+      tagline: "보이스피싱 걱정 없는 안심 전화",
+      features: ["AI 통화 스크리닝: 용건 요약 서비스", "큰 글씨 모드 & AI 음성 안내"],
+      description: "모르는 번호는 AI가 대신 받아 요약해주니 안심하고 사용하세요."
+    },
+    {
+      title: "현장직/기술자",
+      icon: <Construction className="w-5 h-5" />,
+      tagline: "소음은 지우고 선명함만 남기세요",
+      features: ["오디오 이레이저: 현장 소음 제거", "AI 스캔: 기름때 묻은 도면 복원"],
+      description: "시끄러운 현장에서도 내 목소리만 전달하고, 낡은 도면도 선명하게 확인합니다."
+    },
+    {
+      title: "여행/쇼퍼",
+      icon: <MapPin className="w-5 h-5" />,
+      tagline: "인생샷 완성부터 즉시 쇼핑까지",
+      features: ["포토 어시스트: 사람 제거/이동", "서클 투 서치: 본 상품 즉시 구매"],
+      description: "여행지 인파는 AI로 지우고, 길에서 본 예쁜 소품은 바로 검색해서 구매하세요."
+    },
+    {
+      title: "1인가구/대학생",
+      icon: <User className="w-5 h-5" />,
+      tagline: "똑똑한 일상 관리와 SNS 전문가",
+      features: ["생성형 편집: 전문가급 사진 보정", "나우 넛지: 배달/택배 일정 관리"],
+      description: "배달 관리부터 SNS용 사진 보정까지, 나만의 똑똑한 비서가 생깁니다."
+    }
+  ];
+
+  const magenta = "#E6007E";
+
+  return (
+    <div className="flex flex-col min-h-screen bg-white font-sans text-gray-900 max-w-md mx-auto shadow-2xl">
+      {/* Header */}
+      <header className="p-4 flex justify-between items-center border-b sticky top-0 bg-white z-10">
+        <div className="font-bold text-xl flex items-center" style={{ color: magenta }}>
+          Simply <span className="ml-1 font-black underline">U+</span>
+        </div>
+        <div className="bg-gray-100 px-3 py-1 rounded-full text-xs font-bold text-gray-500">매장 방문 고객 전용</div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-8 pb-4 px-6 bg-gradient-to-b from-gray-50 to-white text-center">
+        <h2 className="text-sm font-bold tracking-widest mb-2" style={{ color: magenta }}>GALAXY S26 ULTRA</h2>
+        <h1 className="text-3xl font-black leading-tight mb-4">최고의 S26,<br />오직 당신을 위해.</h1>
+        <div className="relative mx-auto w-64 h-64 mb-4">
+          <div className="absolute inset-0 bg-gray-200 rounded-3xl transform rotate-3 scale-95 opacity-50"></div>
+          <div className="absolute inset-0 bg-white shadow-xl rounded-3xl p-4 flex flex-col justify-center items-center border border-gray-100">
+             <Smartphone className="w-32 h-32 mb-2" style={{ color: magenta }} />
+             <p className="text-[10px] text-gray-400">이미지: 갤럭시 S26 울트라</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Killer Offer */}
+      <section className="px-6 py-6 mx-4 rounded-2xl shadow-lg border-2" style={{ borderColor: magenta }}>
+        <div className="flex items-center mb-4">
+          <Sparkles className="w-5 h-5 mr-2" style={{ color: magenta }} />
+          <span className="font-bold text-lg">지금 구매 시 풀 패키지 0원</span>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          <div className="text-center p-2 bg-gray-50 rounded-lg">
+            <Watch className="w-8 h-8 mx-auto mb-1 text-gray-700" />
+            <p className="text-[10px] font-bold">워치8</p>
+            <p className="text-[12px] text-pink-600 font-black">전액할인</p>
+          </div>
+          <div className="text-center p-2 bg-gray-50 rounded-lg">
+            <Headset className="w-8 h-8 mx-auto mb-1 text-gray-700" />
+            <p className="text-[10px] font-bold">버즈3</p>
+            <p className="text-[12px] text-pink-600 font-black">전액할인</p>
+          </div>
+          <div className="text-center p-2 bg-gray-50 rounded-lg">
+            <Tablet className="w-8 h-8 mx-auto mb-1 text-gray-700" />
+            <p className="text-[10px] font-bold">탭 A11+</p>
+            <p className="text-[12px] text-pink-600 font-black">전액할인</p>
+          </div>
+        </div>
+      </section>
+
+      {/* AI Guide Tabs */}
+      <section className="px-6 py-10">
+        <h3 className="text-xl font-black mb-6 flex items-center">
+          <span className="w-1.5 h-6 mr-2 rounded-full" style={{ backgroundColor: magenta }}></span>
+          당신께 추천하는 AI 라이프
+        </h3>
+        
+        {/* Tab Buttons - Horizontal Scroll */}
+        <div className="flex overflow-x-auto gap-2 mb-6 no-scrollbar pb-2">
+          {customerTypes.map((type, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTab(idx)}
+              className={`flex-none px-4 py-2 rounded-full text-sm font-bold transition-all duration-300 ${activeTab === idx ? 'text-white shadow-md' : 'bg-gray-100 text-gray-500'}`}
+              style={{ backgroundColor: activeTab === idx ? magenta : undefined }}
+            >
+              {type.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab Content */}
+        <div className="bg-gray-50 rounded-3xl p-6 min-h-[320px] transition-all duration-500 animate-in fade-in slide-in-from-bottom-2">
+          <div className="flex items-center mb-4">
+            <div className="p-3 bg-white rounded-2xl shadow-sm mr-4" style={{ color: magenta }}>
+              {customerTypes[activeTab].icon}
+            </div>
+            <div>
+              <h4 className="font-black text-lg leading-tight">{customerTypes[activeTab].tagline}</h4>
+            </div>
+          </div>
+          
+          <div className="bg-white rounded-2xl p-4 mb-4 shadow-sm">
+             <div className="w-full h-40 bg-gray-100 rounded-xl flex items-center justify-center text-gray-400 text-sm mb-3 overflow-hidden">
+                {/* 비디오 자리 표시 */}
+                <div className="relative w-full h-full flex flex-col items-center justify-center">
+                   <div className="w-12 h-12 rounded-full bg-white/80 flex items-center justify-center mb-2">
+                      <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-magenta border-b-[8px] border-b-transparent ml-1" style={{borderLeftColor: magenta}}></div>
+                   </div>
+                   <span className="font-bold">AI 기능 시연 영상 보기</span>
+                </div>
+             </div>
+             <p className="text-sm text-gray-600 leading-relaxed mb-4">
+               {customerTypes[activeTab].description}
+             </p>
+             <ul className="space-y-2">
+               {customerTypes[activeTab].features.map((f, i) => (
+                 <li key={i} className="flex items-center text-sm font-bold text-gray-800">
+                   <div className="w-1.5 h-1.5 rounded-full mr-2" style={{ backgroundColor: magenta }}></div>
+                   {f}
+                 </li>
+               ))}
+             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer / CTA Area */}
+      <footer className="mt-auto p-6 bg-white border-t space-y-4 pb-10">
+        <button 
+          onClick={() => window.open('https://www.lguplus.com', '_blank')}
+          className="w-full py-4 rounded-2xl text-white font-black text-lg shadow-xl active:scale-95 transition-transform flex justify-center items-center"
+          style={{ backgroundColor: magenta }}
+        >
+          나에게 꼭 맞는 AI기능 추천받기
+          <ChevronRight className="ml-2 w-5 h-5" />
+        </button>
+        <p className="text-center text-[11px] text-gray-400">
+          본 혜택은 매장 상담 및 특정 요금제 이용 시 적용 가능합니다.<br />
+          © LG Uplus Corp. All Rights Reserved.
+        </p>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
